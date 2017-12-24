@@ -1,0 +1,4 @@
+.stack-work/
+solutions.cabal
+*~
+*.DS_Store
