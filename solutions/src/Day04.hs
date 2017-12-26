@@ -1,6 +1,5 @@
 module Day04
     ( day04
-    , isValidStrongPasspharse
     ) where
 
 import qualified Data.Set as Set

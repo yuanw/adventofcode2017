@@ -1,4 +1,4 @@
-module Day05 where
+module Day05 (day05) where
 
 data Maze = Maze { step :: Int
                  , current :: Int
@@ -6,7 +6,13 @@ data Maze = Maze { step :: Int
                  } deriving (Show)
 
 day05 :: IO ()
-day05 = undefined
+day05 = do
+    content <- readFile "input5.txt"
+    (print . step) $ until hasExit jump (readInput content)
+
+readInput :: String -> Maze
+readInput content = Maze {step=0, current=0, jumps= (map readF . lines) content }
+    where readF = read :: String -> Int
 
 hasExit :: Maze -> Bool
 hasExit maze = current maze >= length (jumps maze)
