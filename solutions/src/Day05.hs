@@ -1,4 +1,6 @@
-module Day05 where
+module Day05 (
+        day05
+    ) where
 
 import qualified Data.Sequence as Seq
 
@@ -20,7 +22,7 @@ day05 :: IO ()
 day05 = do
     content <- readFile "input5.txt"
     putStrLn "Part I"
-    (print . step) $ until hasExit (jump  (\x -> x +1)) (readInput content)
+    (print . step) $ until hasExit (jump (+1)) (readInput content)
     putStrLn "Part II"
     (print . step) $ until hasExit (jump  (\x -> if x >= 3 then x - 1 else x + 1) )  (readInput content)
 
